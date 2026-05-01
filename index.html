@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMERFEST | O Futuro do Jogo</title>
+    <link rel="icon" type="image/png" href="./img/LogoFest.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <img src="./img/LogoFest.jpeg" alt="GAMERFEST Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">O Evento</a></li>
+            <li><a href="#cronograma">Cronograma</a></li>
+            <li><a href="#mapas">Local</a></li>
+        </ul>
+        <a href="ingressos.html" class="btn-ticket">Ingressos</a>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>O FUTURO DO JOGO É AQUI.</h1>
+            <p>30 de Outubro - 02 de Novembro | São Paulo - SP</p>
+        </div>
+    </header>
+
+    <!-- NOVA SEÇÃO: SOBRE O EVENTO -->
+    <section id="sobre" class="section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Sobre o GamerFest</h2>
+                <p>O <strong>GAMERFEST 2026</strong> não é apenas uma convenção, é o epicentro da cultura gamer na América Latina. Durante quatro dias intensos, unimos desenvolvedores lendários, pro-players de elite e a comunidade mais apaixonada do mundo.</p>
+                <p>Prepare-se para anúncios exclusivos, arenas de e-sports de última geração, experiências imersivas em VR e o maior palco de cosplay já montado no país.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">+150k</span>
+                        <span class="stat-desc">Visitantes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-desc">Palcos Principais</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+200</span>
+                        <span class="stat-desc">Expositores</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800" alt="Ambiente do evento">
+            </div>
+        </div>
+    </section>
+
+    <section id="cronograma" class="section">
+        <h2>Cronograma Completo</h2>
+        <p style="color: var(--text-dim); margin-bottom: 20px;">* Clique nos cards para ver detalhes das atrações e convidados.</p>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="filterDay('dia1')">30/10</button>
+            <button class="tab-btn" onclick="filterDay('dia2')">31/10</button>
+            <button class="tab-btn" onclick="filterDay('dia3')">01/11</button>
+            <button class="tab-btn" onclick="filterDay('dia4')">02/11</button>
+        </div>
+        
+        <div id="schedule-container" class="schedule-grid">
+            <!-- Gerado via JS -->
+        </div>
+    </section>
+
+    <section id="mapas" class="section">
+        <h2>Localização e Mapa</h2>
+        <div class="map-wrapper">
+            <div class="map-box">
+                <h3>Como chegar</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.19750130635!2d-46.660855!3d-23.561334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQwLjgiUyA0NsKwMzknMzkuMSJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="map-box">
+                <h3>Mapa Interno do Evento</h3>
+                <div class="internal-map">
+                    <p>GAMERFEST ARENA</p>
+                    <span style="font-size: 0.8rem; color: var(--text-dim);">[Pavilhão de Exposições]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parceiros" class="section">
+        <h2>Patrocinadores & Apoio</h2>
+        <div class="sponsor-grid">
+            <div class="sponsor-item">NVIDIA</div>
+            <div class="sponsor-item">RAZER</div>
+            <div class="sponsor-item">XBOX</div>
+            <div class="sponsor-item">PLAYSTATION</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 GAMERFEST Event. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

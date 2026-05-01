@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="SUA_IMAGEM_AQUI.png">
+    <title>Ingressos | GAME OVER</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --neon-purple: #a855f7; /* Roxo atualizado */
+            --neon-cyan: #33D9FF;   /* Ciano atualizado */
+            --text-dim: #aaaaaa;
+            --bg-dark: #111;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { padding-top: 50px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #000; color: #fff; margin: 0; }
+
+        .header-title { text-align: center; color: var(--neon-cyan); letter-spacing: 2px; margin-bottom: 40px; }
+
+        /* Container de Ingressos */
+        .tickets-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        
+        .ticket-item { 
+            background: var(--bg-dark); 
+            border: 2px solid var(--neon-purple); 
+            padding: 25px; 
+            border-radius: 15px; 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+        .ticket-item:hover { transform: translateY(-5px); border-color: #fff; }
+        
+        .ticket-vip { border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(51, 217, 255, 0.2); }
+
+        .ticket-item h2 { color: var(--neon-cyan); margin: 0 0 10px 0; font-size: 1.4rem; text-transform: uppercase; }
+        .ticket-item p { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 20px; }
+        
+        .price-box { margin-bottom: 15px; }
+        .price { font-size: 1.8rem; color: var(--neon-purple); font-weight: bold; display: block; }
+        .price-meia { font-size: 1rem; color: var(--neon-cyan); opacity: 0.9; }
+
+        .btn-buy { 
+            background: var(--neon-cyan); 
+            color: #000; 
+            padding: 12px; 
+            border: none; 
+            width: 100%; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-buy:hover { background: #fff; box-shadow: 0 0 10px var(--neon-cyan); }
+
+        /* Formulário */
+        #secao-cadastro { 
+            display: none; 
+            margin-top: 60px; 
+            padding: 60px 20px; 
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .form-container { 
+            background: var(--bg-dark); 
+            border: 2px solid var(--neon-purple); 
+            padding: 30px; 
+            border-radius: 15px; 
+            max-width: 500px; 
+            margin: 0 auto; 
+        }
+        
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; color: var(--neon-cyan); font-size: 0.8rem; font-weight: bold; }
+        .form-group input, .form-group select { 
+            width: 100%; padding: 12px; background: #222; border: 1px solid #444; 
+            color: white; border-radius: 5px; box-sizing: border-box; outline: none;
+        }
+        .form-group input:focus { border-color: var(--neon-cyan); }
+        
+        .btn-submit { 
+            background: var(--neon-purple); color: #fff; padding: 15px; border: none; 
+            width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer; 
+            margin-top: 10px; text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="header-title">ESCOLHA SEU ACESSO</h1>
+    
+    <div class="tickets-container">
+        <!-- Unidade -->
+        <div class="ticket-item">
+            <h2>UNIDADE</h2>
+            <p>Acesso comum para 1 dia à sua escolha.</p>
+            <div class="price-box">
+                <span class="price">R$ 80</span>
+                <span class="price-meia">R$ 40 (Meia)</span>
+            </div>
+            <button class="btn-buy" onclick="abrirFormulario('unidade')">Comprar</button>
+        </div>
+
+        <!-- VIP Diário -->
+        <div class="ticket-item ticket-vip">
+            <h2>VIP DIÁRIO</h2>
+            <p>Experiência VIP para 1 dia específico.</p>
+            <div class="price-box">
+                <span class="price" style="color: var(--neon-cyan);">R$ 200</span>
+                <span class="price-meia" style="color: #fff;">R$ 100 (Meia)</span>
+            </div>
+            <button class="btn-buy" style="background: var(--neon-purple); color: #fff;" onclick="abrirFormulario('vip-dia')">Comprar</button>
+        </div>
+
+        <!-- Passaporte -->
+        <div class="ticket-item">
+            <h2 style="color: var(--neon-purple);">PASSAPORTE</h2>
+            <p>Acesso comum para os 4 dias de evento.</p>
+            <div class="price-box">
+                <span class="price">R$ 250</span>
+                <span class="price-meia">R$ 125 (Meia)</span>
+            </div>
+            <button class="btn-buy" onclick="abrirFormulario('passaporte')">Comprar</button>
+        </div>
+
+        <!-- VIP Full -->
+        <div class="ticket-item ticket-vip">
+            <h2>VIP FULL</h2>
+            <p>VIP em todos os 4 dias + Kit Exclusivo.</p>
+            <div class="price-box">
+                <span class="price" style="color: var(--neon-cyan);">R$ 600</span>
+                <span class="price-meia" style="color: #fff;">R$ 300 (Meia)</span>
+            </div>
+            <button class="btn-buy" style="background: var(--neon-purple); color: #fff;" onclick="abrirFormulario('vip-full')">Comprar</button>
+        </div>
+    </div>
+
+    <div id="secao-cadastro">
+        <div class="form-container">
+            <h2 style="text-align:center; margin-bottom:20px; color: #fff;">CADASTRO DE RESERVA</h2>
+            <form id="form-final">
+                <div class="form-group">
+                    <label>NOME COMPLETO</label>
+                    <input type="text" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label>E-MAIL</label>
+                    <input type="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>TIPO DE INGRESSO</label>
+                    <select id="select-ingresso" required>
+                        <optgroup label="Ingressos por Dia">
+                            <option value="unidade">Unidade - Dia 1</option>
+                            <option value="unidade">Unidade - Dia 2</option>
+                            <option value="unidade">Unidade - Dia 3</option>
+                            <option value="unidade">Unidade - Dia 4</option>
+                            <option value="vip-dia">VIP Diário - Dia 1</option>
+                            <option value="vip-dia">VIP Diário - Dia 2</option>
+                            <option value="vip-dia">VIP Diário - Dia 3</option>
+                            <option value="vip-dia">VIP Diário - Dia 4</option>
+                        </optgroup>
+                        <optgroup label="Passaportes (4 dias)">
+                            <option value="passaporte">Passaporte Comum</option>
+                            <option value="vip-full">VIP Full Passaporte</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>CATEGORIA</label>
+                    <select required>
+                        <option value="inteira">Inteira</option>
+                        <option value="meia">Meia-entrada</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Finalizar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin: 40px 0; padding-bottom: 40px;">
+        <a href="index.html" style="color: var(--text-dim); text-decoration: none;">← Voltar para o site</a>
+    </div>
+
+    <script>
+        function abrirFormulario(tipo) {
+            const secao = document.getElementById('secao-cadastro');
+            secao.style.display = 'block';
+            const select = document.getElementById('select-ingresso');
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === tipo) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+            secao.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
