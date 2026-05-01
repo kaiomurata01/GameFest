@@ -1,7 +1,7 @@
 const events = [
     // DIA 1 - 30/10
     { day: 'dia1', stage: 'Palco Alpha', start: '10:00', end: '11:30', title: 'Grand Opening GAMERFEST', celebs: 'Hideo Kojima & Gaules', desc: 'Abertura épica com orquestra tocando temas de games clássicos e anúncios globais.' },
-    { day: 'dia1', stage: 'Palco Beta', start: '14:00', end: '16:00', title: 'Showmatch Elden Ring', celebs: 'Loud Coringa & David Jones', desc: 'A primeira grande disputa influenciadora da edição.' },
+    { day: 'dia1', stage: 'Palco Beta', start: '14:00', end: '16:00', title: 'Showmatch Elden Ring', celebs: 'Loud Coringa & Davy Jones', desc: 'A primeira grande disputa influenciadora da edição.' },
     { day: 'dia1', stage: 'Indie Hub', start: '10:00', end: '15:00', title: 'ShowIndie Brasil', celebs: 'Desenvolvedores Locais', desc: 'Teste os jogos brasileiros mais promissores de 2026.' },
 
     // DIA 2 - 31/10 (Especial Halloween)
